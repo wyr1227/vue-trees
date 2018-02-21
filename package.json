@@ -19,6 +19,7 @@
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-commonjs": "^8.3.0",
     "rollup-plugin-node-resolve": "^3.0.2",
+    "rollup-plugin-postcss": "^1.2.8",
     "rollup-plugin-vue": "^3.0.0",
     "vue-template-compiler": "^2.5.13"
   }

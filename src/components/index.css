@@ -1,0 +1,169 @@
+.wyr-trees ul,.wyr-trees li {
+  list-style-type:none;
+  text-align:left;
+}
+
+.wyr-trees .tree-open {
+  line-height: 13px;
+}
+
+.wyr-trees .tree-open:after {
+  content: "\2013";
+  font-style: normal;
+}
+
+.wyr-trees .tree-close:after {
+  content: "+";
+  font-style: normal;
+}
+
+.wyr-trees .tree-open,
+.wyr-trees .tree-close {
+  display: inline-block;
+  width:14px;
+  height:14px;
+  text-align: center;
+  line-height: 13px;
+  border: 1px solid #888888;
+  border-radius: 2px;
+  background: #FFFFFF;
+}
+
+.wyr-trees .tree-open:after {
+  content: "\2013";
+  font-style: normal;
+}
+
+.wyr-trees .tree-open {
+  line-height: 13px;
+}
+
+.wyr-trees .box-halfchecked {
+  background-color: #888888;
+}
+.wyr-trees .box-halfchecked:after {
+  content:"\2713";
+  display:block;
+  position:absolute;
+  z-index:1;
+  width:100%;
+  text-align:center;
+  color: #FFFFFF;
+}
+.wyr-trees .inputCheck.wyr-trees:after {
+  content:"\2713";
+  display:block;
+  position:absolute;
+  z-index:1;
+  width:100%;
+  text-align:center;
+}
+.wyr-trees .check{
+  display:block;
+  position:absolute;
+  font-size:14px;
+  width:16px;
+  height:16px;
+  left:-5px;
+  top:-4px;
+  border:1px solid #000000;
+  opacity:0;
+  cursor:pointer;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter:alpha(opacity=0);
+  z-index:2;
+}
+.wyr-trees .chkDisabled {
+  background-color: #F5F5F5;
+  opacity: 1;
+  cursor: not-allowed;
+  }
+
+  .wyr-trees li span:hover {
+    background-color: #dddddde3
+  }
+  .wyr-trees ul,.wyr-trees li {
+    list-style-type:none;
+    text-align:left;
+  }
+  .wyr-trees li {
+    margin: 0;
+    padding: 5px 5px 5px 15px;
+    position: relative;
+    list-style: none;
+  }
+  .wyr-trees li:after,
+  .wyr-trees li:before {
+    content: '';
+    left: -8px;
+    position: absolute;
+    right: auto;
+    border-width: 1px
+  }
+  .wyr-trees li:before {
+    border-left: 1px dashed #999;
+    bottom: 50px;
+    height: 100%;
+    top: -8px;
+    width: 1px;
+  }
+  .wyr-trees li:after {
+    border-top: 1px dashed #999;
+    height: 20px;
+    top: 17px;
+    width: 28px
+  }
+  .wyr-trees li:last-child::before {
+    height: 26px
+  }
+  .wyr-trees>li.first-node:before {
+    top: 17px;
+  }
+  .wyr-trees>li.first-node.only-node::before {
+    border-left: none;
+  }
+  .wyr-trees > ul {
+    padding-left: 0
+  }
+  .wyr-trees ul {
+    padding-left: 17px;
+    padding-top: 10px;
+  }
+  .wyr-trees li.leaf {
+    padding-left: 15px;
+  }
+  .wyr-trees li.leaf:after {
+    content: '';
+    left: -7px;
+    position: absolute;
+    right: auto;
+    border-width: 1px;
+    border-top: 1px dashed #999;
+    height: 20px;
+    top: 17px;
+    width: 25px;
+  }
+  .wyr-trees .tree-node-el {
+    background-color: #FFFFFF;
+    padding-left: 2px;
+    position: relative;
+    z-index: 3;
+  }
+  .wyr-trees .node-title {
+    padding: 3px 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 0 2px;
+  }
+  .wyr-trees>li.first-node:before {
+    top: 17px;
+  }
+  .wyr-trees>li.first-node.only-node::before {
+    border-left: none;
+  }
+  .wyr-trees>li.first-node.only-node::before {
+    border-left: none;
+  }
+  .wyr-trees>li.only-node:after {
+    border-top: none;
+  }
