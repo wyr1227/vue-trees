@@ -1,14 +1,13 @@
 <template>
   <div>
-  <ul v-if="type === 'fold'">
+  <ul class="wyr-trees-fold" v-if="type === 'fold'">
     <li v-for="(item, index) in data"  @drop="drop(item, $event)" @dragover="dragover($event)" :class="{'leaf': haveLeaf(item), 'first-node': !parent && index === 0, 'only-node': !parent && data.length === 1}">
-      <div class="tree-node-el" :draggable="draggable" @dragstart="drag(item, $event)">
-        <span v-if="!!item.children" @click="expandTree(item)" :class="item.expanded ? 'tree-open' : 'tree-close'" ></span>
-        <span v-if='canCheck && !item.nocheck' :class="[ item.checked ?  'box-checked' : 'box-unchecked', 'inputCheck']">
-          <input :disabled="item.banCheck" :class="['check', item.banCheck ? 'chkDisabled' : '']" v-if='canCheck' type="checkbox"  v-model="item.checked"/>
+      <div class="tree-node-el" :draggable="draggable" @dragstart="drag(item, $event)" :style="{'background-color': bgColor, 'color': fontColor}">
+        <span class="tree-down" @click="expandTree(item, $event)">
+          <span :class="item.children && item.children.length > 0 ? item.expanded ? 'tree-arrow-down' : 'tree-arrow-right' : ''" ref="arrow"></span>
         </span>
-        <span v-if="!control" class="node-title">{{ item.title }}</span>
-        <input v-if="control" type="text" v-model="item.title" class="node-title">
+        <span v-if="!control" class="node-title" :style="{'padding-left': times * 17 + 'px'}">{{ item.title }}</span>
+        <input v-if="control" type="text" v-model="item.title" class="node-title" :style="{'margin-left': times * 17 + 'px'}">
         <span v-if="control">
           <span class="tree-add" @click="addNode(item)">Add</span>
           <span class="tree-del" @click="delNode(item)">Del</span>
@@ -21,13 +20,13 @@
         v-on:before-leave="beforeLeave"
         v-on:leave="leave"
         v-on:after-leave="afterLeave">
-        <Trees v-if="!haveLeaf(item)" :type="type" :data="item.children" :parent ='item' :canCheck="canCheck" v-show="item.expanded" :draggable="draggable" :control="control" ></Trees>
+        <Trees v-if="!haveLeaf(item)" :times="times+1" :fontColor="fontColor" :bgColor="bgColor" :type="type" :data="item.children" :parent ='item' :canCheck="canCheck" v-show="item.expanded" :draggable="draggable" :control="control" ></Trees>
       </transition>
     </li>
   </ul>
-  <ul class="wyr-trees" v-if="type === 'default'">
+  <ul class="wyr-trees-dfault" v-if="type === 'default'">
     <li v-for="(item, index) in data"  @drop="drop(item, $event)" @dragover="dragover($event)" :class="{'leaf': haveLeaf(item), 'first-node': !parent && index === 0, 'only-node': !parent && data.length === 1}">
-      <div class="tree-node-el" :draggable="draggable" @dragstart="drag(item, $event)">
+      <div class="tree-node-el" :draggable="draggable" @dragstart="drag(item, $event)" :style="{'background-color': bgColor, 'color': fontColor}">
         <span v-if="!!item.children && item.children && item.children.length > 0" @click="expandTree(item)" :class="item.expanded ? 'tree-open' : 'tree-close'" ></span>
         <span v-if='canCheck && !item.nocheck' :class="[ item.checked ?  'box-checked' : 'box-unchecked', 'inputCheck']">
           <input :disabled="item.banCheck" :class="['check', item.banCheck ? 'chkDisabled' : '']" v-if='canCheck' type="checkbox"  v-model="item.checked"/>
@@ -46,7 +45,7 @@
         v-on:before-leave="beforeLeave"
         v-on:leave="leave"
         v-on:after-leave="afterLeave">
-        <Trees v-if="!haveLeaf(item)" :type="type" :data="item.children" :parent ='item' :canCheck="canCheck" v-show="item.expanded" :draggable="draggable" :control="control" ></Trees>
+        <Trees v-if="!haveLeaf(item)" :type="type" :fontColor="fontColor" :bgColor="bgColor" :data="item.children" :parent ='item' :canCheck="canCheck" v-show="item.expanded" :draggable="draggable" :control="control" ></Trees>
       </transition>
     </li>
   </ul>
@@ -59,6 +58,7 @@
 
 <script>
 import './default.css'
+import './fold.css'
 import transition from './transition'
 export default {
   name: 'Trees',
@@ -95,12 +95,24 @@ export default {
     type: {
       type: String,
       default: 'default'
+    },
+    bgColor: {
+      type: String,
+      default: 'white'
+    },
+    fontColor: {
+      type: String,
+      default: 'black'
+    },
+    times: {
+      type: Number,
+      default: 1
     }
   },
   data () {
     return {
       num: 0,
-      check: true
+      check: true,
     }
   },
   mounted () {
@@ -172,8 +184,16 @@ export default {
         return false
       }
     },
-    expandTree (node) {
+    expandTree (node, ev) {
       this.$set(node, 'expanded', !node.expanded)
+      if (this.type === 'fold') {
+        let arrow = this.$refs.arrow[0]
+        if (arrow.className === 'tree-arrow-right') {
+          arrow.className = 'tree-arrow-down'
+        } else {
+          arrow.className = 'tree-arrow-right'
+        }
+      }
     },
     addNode (node) {
       let newNode = {
@@ -191,23 +211,21 @@ export default {
       if (node.checked && this.canCheck) throw new Error('the node should be checked!')
       this.parent.children.splice(this.parent.children.indexOf(node), 1)
     },
+    allCheck (node, state) {
+      if (node.hasOwnProperty('children')) {
+        for (let rn of node.children) {
+          this.$set(rn, 'checked', state)
+          if (rn.children) return this.allCheck(rn, state)
+        }
+      }
+    },
     nodeCheck (node, state) {
       if (!node.checked) {
         this.$set(node, 'checked', state)
-        if (node.hasOwnProperty('children')) {
-          for (let rn of node.children) {
-            this.$set(rn, 'checked', state)
-            if (rn.children) return this.nodeCheck(node, state)
-          }
-        }
+        this.allCheck(node, state)
       } else {
-        this.$set(node, 'checked', state)
-        if (node.hasOwnProperty('children')) {
-          for (let rn of node.children) {
-            this.$set(rn, 'checked', state)
-            if (rn.children) return this.nodeCheck(node, state)
-          }
-        }
+        this.$set(node, 'checked', !state)
+        this.allCheck(node, !state)
       }
     }
   }

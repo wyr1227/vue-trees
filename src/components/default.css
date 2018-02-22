@@ -1,24 +1,24 @@
-.wyr-trees ul,.wyr-trees li {
+.wyr-trees-dfault ul,.wyr-trees-dfault li {
   list-style-type:none;
   text-align:left;
 }
 
-.wyr-trees .tree-open {
+.wyr-trees-dfault .tree-open {
   line-height: 13px;
 }
 
-.wyr-trees .tree-open:after {
+.wyr-trees-dfault .tree-open:after {
   content: "\2013";
   font-style: normal;
 }
 
-.wyr-trees .tree-close:after {
+.wyr-trees-dfault .tree-close:after {
   content: "+";
   font-style: normal;
 }
 
-.wyr-trees .tree-open,
-.wyr-trees .tree-close {
+.wyr-trees-dfault .tree-open,
+.wyr-trees-dfault .tree-close {
   display: inline-block;
   width:14px;
   height:14px;
@@ -29,39 +29,39 @@
   background: #FFFFFF;
 }
 
-.wyr-trees .tree-open:after {
+.wyr-trees-dfault .tree-open:after {
   content: "\2013";
   font-style: normal;
 }
-.wyr-trees .tree-add {
+.wyr-trees-dfault .tree-add {
   padding: 5px 10px;
   background-color: #00FF99;
   color: white;
   font-weight: bold;
   cursor: pointer;
 }
-.wyr-trees .tree-del {
+.wyr-trees-dfault .tree-del {
   padding: 5px 10px;
   background-color: #990033;
   color: white;
   font-weight: bold;
   cursor: pointer;
 }
-.wyr-trees .tree-exit {
+.wyr-trees-dfault .tree-exit {
   padding: 5px 10px;
   background-color: #CCFF66;
   color: white;
   font-weight: bold;
   cursor: pointer;
 }
-.wyr-trees .tree-open {
+.wyr-trees-dfault .tree-open {
   line-height: 13px;
 }
 
-.wyr-trees .box-halfchecked {
+.wyr-trees-dfault .box-halfchecked {
   background-color: #888888;
 }
-.wyr-trees .box-halfchecked:after {
+.wyr-trees-dfault .box-halfchecked:after {
   content:"\2713";
   display:block;
   position:absolute;
@@ -70,7 +70,7 @@
   text-align:center;
   color: #FFFFFF;
 }
-.wyr-trees .inputCheck.wyr-trees:after {
+.wyr-trees-dfault .inputCheck.wyr-trees-dfault:after {
   content:"\2713";
   display:block;
   position:absolute;
@@ -78,7 +78,7 @@
   width:100%;
   text-align:center;
 }
-.wyr-trees .check{
+.wyr-trees-dfault .check{
   display:block;
   position:absolute;
   font-size:14px;
@@ -93,66 +93,66 @@
   filter:alpha(opacity=0);
   z-index:2;
 }
-.wyr-trees .chkDisabled {
+.wyr-trees-dfault .chkDisabled {
   background-color: #F5F5F5;
   opacity: 1;
   cursor: not-allowed;
   }
 
-  .wyr-trees li span:hover {
+  .wyr-trees-dfault li span:hover {
     background-color: #dddddde3
   }
-  .wyr-trees ul,.wyr-trees li {
+  .wyr-trees-dfault ul,.wyr-trees-dfault li {
     list-style-type:none;
     text-align:left;
   }
-  .wyr-trees li {
+  .wyr-trees-dfault li {
     margin: 0;
     padding: 5px 5px 5px 15px;
     position: relative;
     list-style: none;
   }
-  .wyr-trees li:after,
-  .wyr-trees li:before {
+  .wyr-trees-dfault li:after,
+  .wyr-trees-dfault li:before {
     content: '';
     left: -8px;
     position: absolute;
     right: auto;
     border-width: 1px
   }
-  .wyr-trees li:before {
+  .wyr-trees-dfault li:before {
     border-left: 1px dashed #999;
     bottom: 50px;
     height: 100%;
     top: -8px;
     width: 1px;
   }
-  .wyr-trees li:after {
+  .wyr-trees-dfault li:after {
     border-top: 1px dashed #999;
     height: 20px;
     top: 17px;
     width: 28px
   }
-  .wyr-trees li:last-child::before {
+  .wyr-trees-dfault li:last-child::before {
     height: 26px
   }
-  .wyr-trees>li.first-node:before {
+  .wyr-trees-dfault>li.first-node:before {
     top: 17px;
   }
-  .wyr-trees>li.first-node.only-node::before {
+  .wyr-trees-dfault>li.first-node.only-node::before {
     border-left: none;
   }
-  .wyr-trees > ul {
+  .wyr-trees-dfault > ul {
     padding-left: 0
   }
-  .wyr-trees ul {
+  .wyr-trees-dfault {
     padding-left: 17px;
     padding-top: 10px;
   }
-  .wyr-trees li.leaf {
+  .wyr-trees-dfault li.leaf {
     padding-left: 15px;
   }
-  .wyr-trees li.leaf:after {
+  .wyr-trees-dfault li.leaf:after {
     content: '';
     left: -7px;
     position: absolute;
@@ -163,32 +163,32 @@
     top: 17px;
     width: 25px;
   }
-  .wyr-trees .tree-node-el {
+  .wyr-trees-dfault .tree-node-el {
     background-color: #FFFFFF;
     padding-left: 2px;
     position: relative;
     z-index: 3;
   }
-  .wyr-trees .node-title {
+  .wyr-trees-dfault .node-title {
     padding: 3px 3px;
     border-radius: 3px;
     cursor: pointer;
     margin: 0 2px;
   }
-  .wyr-trees>li.first-node:before {
+  .wyr-trees-dfault>li.first-node:before {
     top: 17px;
   }
-  .wyr-trees>li.first-node.only-node::before {
+  .wyr-trees-dfault>li.first-node.only-node::before {
     border-left: none;
   }
-  .wyr-trees>li.first-node.only-node::before {
+  .wyr-trees-dfault>li.first-node.only-node::before {
     border-left: none;
   }
-  .wyr-trees>li.only-node:after {
+  .wyr-trees-dfault>li.only-node:after {
     border-top: none;
   }
 
-  .wyr-trees .inputCheck {
+  .wyr-trees-dfault .inputCheck {
     display:inline-block;
     position:relative;
     width:14px;
@@ -200,7 +200,7 @@
     font-size:14px;
     line-height:14px;
   }
-  .wyr-trees .inputCheck.notAllNodes:before {
+  .wyr-trees-dfault .inputCheck.notAllNodes:before {
     content:"\2713";
     display:block;
     position:absolute;
@@ -210,7 +210,7 @@
     z-index:1;
     color:#ffffff;
   }
-  .wyr-trees .inputCheck.box-checked:after {
+  .wyr-trees-dfault .inputCheck.box-checked:after {
     content:"\2713";
     display:block;
     position:absolute;

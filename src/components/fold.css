@@ -1,0 +1,37 @@
+.wyr-trees-fold {
+  padding-left: 0px;
+  padding-top: 0px;
+}
+.wyr-trees-fold ul,.wyr-trees-fold li {
+  list-style-type:none;
+  text-align:left;
+}
+.wyr-trees-fold .tree-node-el {
+  background-color: white;
+  padding: 10px 2px;
+  /* border-top: 1px solid #ebeef5; */
+  border-bottom: 1px solid #ebeef5;
+}
+.wyr-trees-fold .tree-arrow-right {
+  display: inline-block;   
+  border-right: 3px solid; border-bottom: 3px solid;  
+  width: 8px; height: 8px;  
+  transform: rotate(-45deg);
+  transition: transform .3s;
+}
+.wyr-trees-fold .tree-arrow-down {
+  display: inline-block;   
+  border-right: 3px solid; border-bottom: 3px solid;  
+  width: 8px; height: 8px;  
+  transform: rotate(45deg);
+  transition: transform .3s;
+}
+.wyr-trees-fold .tree-down {
+  height: 100%;
+  padding: 0 20px;
+  float: right;
+}
+
+/* .wyr-trees-fold  .node-title {
+  padding-left: 10px;
+} */
