@@ -33,7 +33,27 @@
   content: "\2013";
   font-style: normal;
 }
-
+.wyr-trees .tree-add {
+  padding: 5px 10px;
+  background-color: #00FF99;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.wyr-trees .tree-del {
+  padding: 5px 10px;
+  background-color: #990033;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.wyr-trees .tree-exit {
+  padding: 5px 10px;
+  background-color: #CCFF66;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
 .wyr-trees .tree-open {
   line-height: 13px;
 }
@@ -166,4 +186,35 @@
   }
   .wyr-trees>li.only-node:after {
     border-top: none;
+  }
+
+  .wyr-trees .inputCheck {
+    display:inline-block;
+    position:relative;
+    width:14px;
+    height:14px;
+    border:1px solid #888888;
+    border-radius:2px;
+    top:4px;
+    text-align:center;
+    font-size:14px;
+    line-height:14px;
+  }
+  .wyr-trees .inputCheck.notAllNodes:before {
+    content:"\2713";
+    display:block;
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-color:#888888;
+    z-index:1;
+    color:#ffffff;
+  }
+  .wyr-trees .inputCheck.box-checked:after {
+    content:"\2713";
+    display:block;
+    position:absolute;
+    z-index:1;
+    width:100%;
+    text-align:center;
   }
