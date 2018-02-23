@@ -115,10 +115,6 @@ export default {
 }
 </script>
 ```
-<<<<<<< HEAD
 ### Example of effect
-=======
-### 图片
->>>>>>> b857a710492a3dd5c1058230787776bcf822546e
 <img src="https://github.com/wyr1227/vue-trees/blob/master/src/images/beforeMod.jpg" width=100% height=512 />
 <img src="https://github.com/wyr1227/vue-trees/blob/master/src/images/afterMod.png" width=100% height=512 />
