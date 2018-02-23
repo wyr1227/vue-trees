@@ -16,7 +16,7 @@ import vueTrees from 'vue-trees'
 Vue.use(vueTrees)
 ```
 
-## API DOC ([中文文档](https://github.com/halower/vue-tree/blob/master/README_CN.md))
+## API DOC ([中文文档](https://github.com/wyr1227/vue-trees/blob/master/README_CN.md))
 
 ###  data Property
 The data property does not support properties inherited from the prototype chain (if you can use to consider whether the under-complex, it is recommended to check the code)
@@ -158,7 +158,8 @@ a {
 
 ```
 ### Example of effect
-#If you can not see my picture please go my [github](https://github.com/wyr1227/vue-trees)
-#If you find any problems during use please feel free to Issues
+
+###### If you can not see my picture please go my [github](https://github.com/wyr1227/vue-trees).
+###### If you find any problems during use please feel free to Issues
 <img src="https://github.com/wyr1227/vue-trees/blob/master/src/images/beforeMod.jpg" width=100% height=512 />
 <img src="https://github.com/wyr1227/vue-trees/blob/master/src/images/afterMod.png" width=100% height=512 />
