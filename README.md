@@ -158,7 +158,7 @@ a {
 
 ```
 ### Example of effect
-If you can not see my picture please go my [github](https://github.com/wyr1227/vue-trees)
-If you find any problems during use please feel free to Issues
+#If you can not see my picture please go my [github](https://github.com/wyr1227/vue-trees)
+#If you find any problems during use please feel free to Issues
 <img src="https://github.com/wyr1227/vue-trees/blob/master/src/images/beforeMod.jpg" width=100% height=512 />
 <img src="https://github.com/wyr1227/vue-trees/blob/master/src/images/afterMod.png" width=100% height=512 />

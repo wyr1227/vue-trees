@@ -158,7 +158,7 @@ a {
 
 ```
 ### 效果实例
-如果你看不见我的图片请去 [github](https://github.com/wyr1227/vue-trees)
-如果在使用过程中发现任何问题欢迎随时Issues
+#如果你看不见我的图片请去 [github](https://github.com/wyr1227/vue-trees)
+#如果在使用过程中发现任何问题欢迎随时Issues
 <img src="https://github.com/wyr1227/vue-trees/blob/master/src/images/beforeMod.jpg" width=100% height=512 />
 <img src="https://github.com/wyr1227/vue-trees/blob/master/src/images/afterMod.png" width=100% height=512 />
