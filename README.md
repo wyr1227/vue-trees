@@ -1,7 +1,7 @@
 # vue-trees
 a tree UI base on vue 2.X
 
-## API DOC ([中文文档](https://github.com/wyr1227/vue-trees/edit/master/README_CN.md))
+## API DOC ([中文文档](https://github.com/halower/vue-tree/blob/master/README_CN.md))
 
 
 ###  data Property
