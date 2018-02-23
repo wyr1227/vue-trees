@@ -128,7 +128,7 @@ var Trees = { render: function render() {
             _vm.delNode(item);
           } } }, [_vm._v("Del")])]) : _vm._e()]), _vm._v(" "), _c('transition', { on: { "before-enter": _vm.beforeEnter, "enter": _vm.enter, "after-enter": _vm.afterEnter, "before-leave": _vm.beforeLeave, "leave": _vm.leave, "after-leave": _vm.afterLeave } }, [!_vm.haveLeaf(item) ? _c('Trees', { directives: [{ name: "show", rawName: "v-show", value: item.expanded, expression: "item.expanded" }], attrs: { "type": _vm.type, "afterAddNode": _vm.afterAddNode, "beforeAddNode": _vm.beforeAddNode, "beforeDelNode": _vm.beforeDelNode, "afterDelNode": _vm.afterDelNode, "beforeDragNode": _vm.beforeDragNode, "afterDragNode": _vm.afterDragNode, "times": _vm.times + 1, "fontColor": _vm.fontColor, "bgColor": _vm.bgColor, "data": item.children, "parent": item, "canCheck": _vm.canCheck, "draggable": _vm.draggable, "control": _vm.control } }) : _vm._e()], 1)], 1);
     })) : _vm._e(), _vm._v(" "), _vm.type === 'default' ? _c('ul', { staticClass: "wyr-trees-dfault" }, _vm._l(_vm.data, function (item, index) {
-      return _c('li', { class: { 'leaf': _vm.haveLeaf(item), 'first-node': !_vm.parent && index === 0, 'only-node': !_vm.parent && _vm.data.length === 1, 'is-solid': _vm.isSolid, 'is-dashed': !_vm.isSolid }, on: { "drop": function drop($event) {
+      return _c('li', { class: { 'is-solid': _vm.isSolid, 'is-dashed': !_vm.isSolid, 'leaf': _vm.haveLeaf(item), 'first-node': !_vm.parent && index === 0, 'only-node': !_vm.parent && _vm.data.length === 1 }, on: { "drop": function drop($event) {
             _vm.drop(item, $event);
           }, "dragover": function dragover($event) {
             _vm.dragover($event);
@@ -263,8 +263,7 @@ var Trees = { render: function render() {
   data: function data() {
     return {
       num: 0,
-      check: true,
-      drageNode: {}
+      check: true
     };
   },
   mounted: function mounted() {
@@ -316,10 +315,11 @@ var Trees = { render: function render() {
       }
     },
     setDragNode: function setDragNode(guid, node) {
-      this.drageNode[guid] = node;
+      window['drageTarget'] = {};
+      window['drageTarget'][guid] = node;
     },
     getDragNode: function getDragNode(guid) {
-      return this.drageNode[guid];
+      return window['drageTarget'][guid];
     },
     initParent: function initParent() {
       var _iteratorNormalCompletion = true;

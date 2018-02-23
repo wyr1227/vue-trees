@@ -25,7 +25,7 @@
     </li>
   </ul>
   <ul class="wyr-trees-dfault" v-if="type === 'default'">
-    <li v-for="(item, index) in data"  @drop="drop(item, $event)" @dragover="dragover($event)" :class="{'leaf': haveLeaf(item), 'first-node': !parent && index === 0, 'only-node': !parent && data.length === 1, 'is-solid': isSolid, 'is-dashed': !isSolid}">
+    <li v-for="(item, index) in data"  @drop="drop(item, $event)" @dragover="dragover($event)" :class="{'is-solid': isSolid, 'is-dashed': !isSolid, 'leaf': haveLeaf(item), 'first-node': !parent && index === 0, 'only-node': !parent && data.length === 1}">
       <div class="tree-node-leaf" :draggable="draggable" @dragstart="drag(item, $event)" :style="{'background-color': bgColor, 'color': fontColor}">
         <span v-if="!!item.children && item.children && item.children.length > 0" @click="expandTree(item)" :class="item.expanded ? 'tree-open' : 'tree-close'" ></span>
         <span v-if='canCheck && !item.nocheck' :class="[ item.checked ?  'box-checked' : 'box-unchecked', 'inputCheck']">
@@ -135,8 +135,7 @@ export default {
   data () {
     return {
       num: 0,
-      check: true,
-      drageNode:{}
+      check: true
     }
   },
   mounted () {
@@ -187,10 +186,11 @@ export default {
       }
     },
     setDragNode (guid, node) {
-     this.drageNode[guid] = node
+      window['drageTarget'] = {}
+      window['drageTarget'][guid] = node
     },
     getDragNode (guid) {
-      return this.drageNode[guid]
+      return window['drageTarget'][guid]
     },
     initParent () {
       for (let node of this.data) {
