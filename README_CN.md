@@ -16,7 +16,7 @@ import vueTrees from 'vue-trees'
 Vue.use(vueTrees)
 ```
 
-## API 文档  ([英文文档](https://github.com/halower/vue-tree/blob/master/README.md))
+## API 文档  ([英文文档](https://github.com/wyr1227/vue-trees/blob/master/README.md))
 
 ###  data 属性
 data属性不支持从原型链上继承的属性(如果用到可以考虑下是否过于复杂，建议检查下代码)
@@ -40,7 +40,7 @@ data属性不支持从原型链上继承的属性(如果用到可以考虑下是
 |bgColor | 背景颜色(default类型下无用) | String | Y | #fff |
 |fontColor | 字体颜色(default类型下无用) | String | Y | #000 |
 
-###  tree 事件
+###  node 事件
 | 参数      | 说明    | 类型      | 可编辑 | 参数  |
 |---------- |-------- |---------- |---------- |---------- |
 |beforeAddNode | 增加节点前触发事件(返回'no'表示不新增) | Function | Y | 1:父节点 |

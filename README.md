@@ -40,7 +40,7 @@ The data property does not support properties inherited from the prototype chain
 |bgColor | Background color (default type is useless) | String | Y | #fff |
 |fontColor | Font color (default type is useless) | String | Y | #000 |
 
-###  tree event
+###  node event
 | Param      | Description    | Types      | Editable | Arguments  |
 |---------- |-------- |---------- |---------- |---------- |
 |beforeAddNode | Increase the node before the trigger event (return 'no' means no new) | Function | Y | 1:Parent node |
