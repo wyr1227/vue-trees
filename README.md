@@ -84,8 +84,8 @@ export default {
         "title": "第二个" 
       }],
       canCheck: true,
-      bgColor: '#33CC99'
-      fontColor: 'white'
+      bgColor: '#33CC99',
+      fontColor: 'white',
       control: false,
       type: 'default'
     }
@@ -114,4 +114,6 @@ export default {
 }
 </script>
 ```
-
+### 图片
+<img src="https://github.com/wyr1227/vue-trees/blob/master/src/images/beforeMod.png" width=512 height=512 />
+<img src="https://github.com/wyr1227/vue-trees/blob/master/src/images/afterMod.png" width=512 height=512 />
