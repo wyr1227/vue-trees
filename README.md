@@ -116,4 +116,4 @@ export default {
 ```
 ### 图片
 <img src="https://github.com/wyr1227/vue-trees/blob/master/src/images/beforeMod.jpg" width=100% height=512 />
-<img src="https://github.com/wyr1227/vue-trees/blob/master/src/images/afterMod.jgp" width=100% height=512 />
+<img src="https://github.com/wyr1227/vue-trees/blob/master/src/images/afterMod.jpg" width=100% height=512 />
