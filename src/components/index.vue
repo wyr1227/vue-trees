@@ -4,7 +4,7 @@
     <li v-for="(item, index) in data"  @drop="drop(item, $event)" @dragover="dragover($event)" :class="{'leaf': haveLeaf(item), 'first-node': !parent && index === 0, 'only-node': !parent && data.length === 1}">
       <div class="tree-node-leaf" :draggable="draggable" @dragstart="drag(item, $event)" :style="{'background-color': bgColor, 'color': fontColor}">
         <span class="tree-down" @click="expandTree(item, $event)">
-          <span :class="item.children && item.children.length > 0 ? item.expanded ? 'tree-arrow-down' : 'tree-arrow-right' : ''" ref="arrow"></span>
+          <span :class="item.children && item.children.length > 0 ? item.expanded ? 'tree-arrow-down' : 'tree-arrow-right' : ''"></span>
         </span>
         <span v-if="!control" class="node-title" :style="{'padding-left': times * 17 + 'px'}">{{ item.title }}</span>
         <input v-if="control" type="text" v-model="item.title" class="node-title" :style="{'margin-left': times * 17 + 'px'}">
@@ -205,11 +205,20 @@ export default {
     expandTree (node, ev) {
       this.$set(node, 'expanded', !node.expanded)
       if (this.type === 'fold') {
-        let arrow = this.$refs.arrow[0]
-        if (arrow.className === 'tree-arrow-right') {
-          arrow.className = 'tree-arrow-down'
+        if (ev.target.children[0]) {
+          let arrow = ev.target.children[0].className
+          if (arrow=== 'tree-arrow-right') {
+            arrow = 'tree-arrow-down'
+          } else {
+            arrow = 'tree-arrow-right'
+          }
         } else {
-          arrow.className = 'tree-arrow-right'
+           let arrow = ev.target.className
+           if (arrow === 'tree-arrow-right') {
+            arrow = 'tree-arrow-down'
+          } else {
+            arrow = 'tree-arrow-right'
+          }
         }
       }
     },
