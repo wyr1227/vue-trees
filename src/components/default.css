@@ -120,15 +120,28 @@
     right: auto;
     border-width: 1px
   }
-  .wyr-trees-dfault li:before {
+  .wyr-trees-dfault .is-dashed:before {
     border-left: 1px dashed #999;
     bottom: 50px;
     height: 100%;
     top: -8px;
     width: 1px;
   }
-  .wyr-trees-dfault li:after {
+  .wyr-trees-dfault .is-solid:before {
+    border-left: 1px solid #999;
+    bottom: 50px;
+    height: 100%;
+    top: -8px;
+    width: 1px;
+  }
+  .wyr-trees-dfault .is-dashed:after {
     border-top: 1px dashed #999;
+    height: 20px;
+    top: 17px;
+    width: 28px
+  }
+  .wyr-trees-dfault .is-solid:after {
+    border-top: 1px solid #999;
     height: 20px;
     top: 17px;
     width: 28px
@@ -152,7 +165,18 @@
   .wyr-trees-dfault li.leaf {
     padding-left: 15px;
   }
-  .wyr-trees-dfault li.leaf:after {
+  .wyr-trees-dfault li.is-solid:after {
+    content: '';
+    left: -7px;
+    position: absolute;
+    right: auto;
+    border-width: 1px;
+    border-top: 1px solid #999;
+    height: 20px;
+    top: 17px;
+    width: 25px;
+  }
+  .wyr-trees-dfault li.is-dashed:after {
     content: '';
     left: -7px;
     position: absolute;

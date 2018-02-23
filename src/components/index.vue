@@ -25,7 +25,7 @@
     </li>
   </ul>
   <ul class="wyr-trees-dfault" v-if="type === 'default'">
-    <li v-for="(item, index) in data"  @drop="drop(item, $event)" @dragover="dragover($event)" :class="{'leaf': haveLeaf(item), 'first-node': !parent && index === 0, 'only-node': !parent && data.length === 1}">
+    <li v-for="(item, index) in data"  @drop="drop(item, $event)" @dragover="dragover($event)" :class="{'leaf': haveLeaf(item), 'first-node': !parent && index === 0, 'only-node': !parent && data.length === 1, 'is-solid': isSolid, 'is-dashed': !isSolid}">
       <div class="tree-node-leaf" :draggable="draggable" @dragstart="drag(item, $event)" :style="{'background-color': bgColor, 'color': fontColor}">
         <span v-if="!!item.children && item.children && item.children.length > 0" @click="expandTree(item)" :class="item.expanded ? 'tree-open' : 'tree-close'" ></span>
         <span v-if='canCheck && !item.nocheck' :class="[ item.checked ?  'box-checked' : 'box-unchecked', 'inputCheck']">
@@ -45,7 +45,7 @@
         v-on:before-leave="beforeLeave"
         v-on:leave="leave"
         v-on:after-leave="afterLeave">
-        <Trees v-if="!haveLeaf(item)" :type="type" :afterAddNode="afterAddNode" :beforeAddNode="beforeAddNode" :beforeDelNode="beforeDelNode" :afterDelNode="afterDelNode" :beforeDragNode="beforeDragNode" :afterDragNode="afterDragNode" :fontColor="fontColor" :bgColor="bgColor" :data="item.children" :parent ='item' :canCheck="canCheck" v-show="item.expanded" :draggable="draggable" :control="control" ></Trees>
+        <Trees v-if="!haveLeaf(item)" :isSolid="isSolid" :type="type" :afterAddNode="afterAddNode" :beforeAddNode="beforeAddNode" :beforeDelNode="beforeDelNode" :afterDelNode="afterDelNode" :beforeDragNode="beforeDragNode" :afterDragNode="afterDragNode" :fontColor="fontColor" :bgColor="bgColor" :data="item.children" :parent ='item' :canCheck="canCheck" v-show="item.expanded" :draggable="draggable" :control="control" ></Trees>
       </transition>
     </li>
   </ul>
@@ -122,6 +122,10 @@ export default {
     afterDragNode: {
       type: Function,
       default: () => null
+    },
+    isSolid: {
+      type: Boolean,
+      default: false
     },
     times: {
       type: Number,
