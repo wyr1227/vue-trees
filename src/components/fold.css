@@ -6,7 +6,7 @@
   list-style-type:none;
   text-align:left;
 }
-.wyr-trees-fold .tree-node-el {
+.wyr-trees-fold .tree-node-leaf {
   background-color: white;
   padding: 10px 2px;
   /* border-top: 1px solid #ebeef5; */

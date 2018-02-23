@@ -2,7 +2,7 @@
   <div>
   <ul class="wyr-trees-fold" v-if="type === 'fold'">
     <li v-for="(item, index) in data"  @drop="drop(item, $event)" @dragover="dragover($event)" :class="{'leaf': haveLeaf(item), 'first-node': !parent && index === 0, 'only-node': !parent && data.length === 1}">
-      <div class="tree-node-el" :draggable="draggable" @dragstart="drag(item, $event)" :style="{'background-color': bgColor, 'color': fontColor}">
+      <div class="tree-node-leaf" :draggable="draggable" @dragstart="drag(item, $event)" :style="{'background-color': bgColor, 'color': fontColor}">
         <span class="tree-down" @click="expandTree(item, $event)">
           <span :class="item.children && item.children.length > 0 ? item.expanded ? 'tree-arrow-down' : 'tree-arrow-right' : ''" ref="arrow"></span>
         </span>
@@ -20,13 +20,13 @@
         v-on:before-leave="beforeLeave"
         v-on:leave="leave"
         v-on:after-leave="afterLeave">
-        <Trees v-if="!haveLeaf(item)" :times="times+1" :fontColor="fontColor" :bgColor="bgColor" :type="type" :data="item.children" :parent ='item' :canCheck="canCheck" v-show="item.expanded" :draggable="draggable" :control="control" ></Trees>
+        <Trees v-if="!haveLeaf(item)" :type="type" :afterAddNode="afterAddNode" :beforeAddNode="beforeAddNode" :beforeDelNode="beforeDelNode" :afterDelNode="afterDelNode" :beforeDragNode="beforeDragNode" :afterDragNode="afterDragNode" :times="times+1" :fontColor="fontColor" :bgColor="bgColor" :data="item.children" :parent ='item' :canCheck="canCheck" v-show="item.expanded" :draggable="draggable" :control="control" ></Trees>
       </transition>
     </li>
   </ul>
   <ul class="wyr-trees-dfault" v-if="type === 'default'">
     <li v-for="(item, index) in data"  @drop="drop(item, $event)" @dragover="dragover($event)" :class="{'leaf': haveLeaf(item), 'first-node': !parent && index === 0, 'only-node': !parent && data.length === 1}">
-      <div class="tree-node-el" :draggable="draggable" @dragstart="drag(item, $event)" :style="{'background-color': bgColor, 'color': fontColor}">
+      <div class="tree-node-leaf" :draggable="draggable" @dragstart="drag(item, $event)" :style="{'background-color': bgColor, 'color': fontColor}">
         <span v-if="!!item.children && item.children && item.children.length > 0" @click="expandTree(item)" :class="item.expanded ? 'tree-open' : 'tree-close'" ></span>
         <span v-if='canCheck && !item.nocheck' :class="[ item.checked ?  'box-checked' : 'box-unchecked', 'inputCheck']">
           <input :disabled="item.banCheck" :class="['check', item.banCheck ? 'chkDisabled' : '']" v-if='canCheck' type="checkbox"  v-model="item.checked"/>
@@ -45,17 +45,12 @@
         v-on:before-leave="beforeLeave"
         v-on:leave="leave"
         v-on:after-leave="afterLeave">
-        <Trees v-if="!haveLeaf(item)" :type="type" :fontColor="fontColor" :bgColor="bgColor" :data="item.children" :parent ='item' :canCheck="canCheck" v-show="item.expanded" :draggable="draggable" :control="control" ></Trees>
+        <Trees v-if="!haveLeaf(item)" :type="type" :afterAddNode="afterAddNode" :beforeAddNode="beforeAddNode" :beforeDelNode="beforeDelNode" :afterDelNode="afterDelNode" :beforeDragNode="beforeDragNode" :afterDragNode="afterDragNode" :fontColor="fontColor" :bgColor="bgColor" :data="item.children" :parent ='item' :canCheck="canCheck" v-show="item.expanded" :draggable="draggable" :control="control" ></Trees>
       </transition>
     </li>
   </ul>
   </div>
 </template>
-
-<style>
-</style>
-
-
 <script>
 import './default.css'
 import './fold.css'
@@ -94,25 +89,50 @@ export default {
     },
     type: {
       type: String,
-      default: 'default'
+      default: () => 'default'
     },
     bgColor: {
       type: String,
-      default: 'white'
+      default: () => 'white'
     },
     fontColor: {
       type: String,
-      default: 'black'
+      default: () => 'black'
+    },
+    afterAddNode: {
+      type: Function,
+      default: () => null
+    },
+    beforeAddNode: {
+      type: Function,
+      default: () => null
+    },
+    beforeDelNode: {
+      type: Function,
+      default: () => null
+    },
+    afterDelNode: {
+      type: Function,
+      default: () => null
+    },
+    beforeDragNode: {
+      type: Function,
+      default: () => null
+    },
+    afterDragNode: {
+      type: Function,
+      default: () => null
     },
     times: {
       type: Number,
-      default: 1
+      default: 1,
     }
   },
   data () {
     return {
       num: 0,
       check: true,
+      drageNode:{}
     }
   },
   mounted () {
@@ -143,32 +163,30 @@ export default {
       ev.preventDefault()
       ev.stopPropagation()
       let guid = ev.dataTransfer.getData('guid')
-      // get drage node
       let drag = this.getDragNode(guid)
-      // if drag not have tartget node
-      if (ev.target.className == 'tree-node-el' || ev.target.className == 'check' || ev.target.className == 'tree-close' || ev.target.className == 'tree-add' || ev.target.className == 'tree-del') return false
-      // if drag target is he himself
-      if (!(node.title) || drag.title == ev.target.innerHTML) return false
-      // if drag node's parent is enter node or root node
-      if (drag.parent === node || drag.parent === null) return false
-      // drag from parent node to child node
-      if (this.isParent(drag, node)) return false
-      let dragHost = drag.parent.children
-      if (node.children && node.children.indexOf(drag) === -1) {
-        node.children.push(drag)
-        dragHost.splice(dragHost.indexOf(drag), 1)
-      } else {
-        this.$set(node, 'children', [drag])
-        dragHost.splice(dragHost.indexOf(drag), 1)
+      let isNo = this.beforeDragNode(drag, node)
+      if (isNo !== 'no') {
+        if (ev.target.className == 'tree-node-leaf' || ev.target.className == 'check' || ev.target.className == 'tree-close' || ev.target.className == 'tree-add' || ev.target.className == 'tree-del') return false
+        if (!(node.title) || drag.title == ev.target.innerHTML) return false
+        if (drag.parent === node || drag.parent === null) return false
+        if (this.isParent(drag, node)) return false
+        let dragParent= drag.parent.children
+        if (node.children && node.children.indexOf(drag) === -1) {
+          node.children.push(drag)
+          dragParent.splice(dragParent.indexOf(drag), 1)
+        } else {
+          this.$set(node, 'children', [drag])
+          dragParent.splice(dragParent.indexOf(drag), 1)
+        }
+        this.$set(node, 'expanded', this.dragAndExpanded)
+        this.beforeDragNode(drag, node)
       }
-      this.$set(node, 'expanded', this.dragAndExpanded)
     },
     setDragNode (guid, node) {
-      window['treeDrag'] = {}
-      window['treeDrag'][guid] = node
+     this.drageNode[guid] = node
     },
     getDragNode (guid) {
-      return window['treeDrag'][guid]
+      return this.drageNode[guid]
     },
     initParent () {
       for (let node of this.data) {
@@ -177,9 +195,9 @@ export default {
     },
     isParent (parent, node) {
       if (parent.hasOwnProperty('children')) {
-        for (let rn of parent.children) {
-          if (rn === node) return true
-          if (rn.children) return this.isParent(rn, node)
+        for (let chilren of parent.children) {
+          if (chilren === node) return true
+          if (chilren.children) return this.isParent(chilren, node)
         }
         return false
       }
@@ -196,26 +214,34 @@ export default {
       }
     },
     addNode (node) {
-      let newNode = {
-        title: 'newNode',
-        expanded: true
-      }
-      if (node.hasOwnProperty('children')) {
-        node.children.push(newNode)
-      } else {
-        this.$set(node, "children", [newNode])
+      let isNo = this.beforeAddNode(node)
+      if (isNo !== 'no') {
+        let newNode = {
+          title: 'newNode',
+          expanded: true
+        }
+        if (node.hasOwnProperty('children')) {
+          node.children.push(newNode)
+        } else {
+          this.$set(node, "children", [newNode])
+        }
+        this.afterAddNode(newNode, node)
       }
     },
     delNode (node) {
-      if (this.parent == null) throw new Error('the root element can\'t deleted!')
-      if (node.checked && this.canCheck) throw new Error('the node should be checked!')
-      this.parent.children.splice(this.parent.children.indexOf(node), 1)
+      let isNo = this.beforeDelNode(node)
+      if (isNo !== 'no') {
+        if (this.parent == null) throw new Error('the root element can\'t deleted!')
+        if (node.checked && this.canCheck) throw new Error('the node should be checked!')
+        this.parent.children.splice(this.parent.children.indexOf(node), 1)
+        this.afterDelNode(node)
+      }
     },
     allCheck (node, state) {
       if (node.hasOwnProperty('children')) {
-        for (let rn of node.children) {
-          this.$set(rn, 'checked', state)
-          if (rn.children) return this.allCheck(rn, state)
+        for (let chilren of node.children) {
+          this.$set(chilren, 'checked', state)
+          if (chilren.children) return this.allCheck(chilren, state)
         }
       }
     },

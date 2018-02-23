@@ -31,10 +31,10 @@ function __$$styleInject(css, ref) {
   }
 }
 
-var css = ".wyr-trees-dfault ul,.wyr-trees-dfault li {\r\n  list-style-type:none;\r\n  text-align:left;\r\n}\r\n\r\n.wyr-trees-dfault .tree-open {\r\n  line-height: 13px;\r\n}\r\n\r\n.wyr-trees-dfault .tree-open:after {\r\n  content: \"\\2013\";\r\n  font-style: normal;\r\n}\r\n\r\n.wyr-trees-dfault .tree-close:after {\r\n  content: \"+\";\r\n  font-style: normal;\r\n}\r\n\r\n.wyr-trees-dfault .tree-open,\r\n.wyr-trees-dfault .tree-close {\r\n  display: inline-block;\r\n  width:14px;\r\n  height:14px;\r\n  text-align: center;\r\n  line-height: 13px;\r\n  border: 1px solid #888888;\r\n  border-radius: 2px;\r\n  background: #FFFFFF;\r\n}\r\n\r\n.wyr-trees-dfault .tree-open:after {\r\n  content: \"\\2013\";\r\n  font-style: normal;\r\n}\r\n.wyr-trees-dfault .tree-add {\r\n  padding: 5px 10px;\r\n  background-color: #00FF99;\r\n  color: white;\r\n  font-weight: bold;\r\n  cursor: pointer;\r\n}\r\n.wyr-trees-dfault .tree-del {\r\n  padding: 5px 10px;\r\n  background-color: #990033;\r\n  color: white;\r\n  font-weight: bold;\r\n  cursor: pointer;\r\n}\r\n.wyr-trees-dfault .tree-exit {\r\n  padding: 5px 10px;\r\n  background-color: #CCFF66;\r\n  color: white;\r\n  font-weight: bold;\r\n  cursor: pointer;\r\n}\r\n.wyr-trees-dfault .tree-open {\r\n  line-height: 13px;\r\n}\r\n\r\n.wyr-trees-dfault .box-halfchecked {\r\n  background-color: #888888;\r\n}\r\n.wyr-trees-dfault .box-halfchecked:after {\r\n  content:\"\\2713\";\r\n  display:block;\r\n  position:absolute;\r\n  z-index:1;\r\n  width:100%;\r\n  text-align:center;\r\n  color: #FFFFFF;\r\n}\r\n.wyr-trees-dfault .inputCheck.wyr-trees-dfault:after {\r\n  content:\"\\2713\";\r\n  display:block;\r\n  position:absolute;\r\n  z-index:1;\r\n  width:100%;\r\n  text-align:center;\r\n}\r\n.wyr-trees-dfault .check{\r\n  display:block;\r\n  position:absolute;\r\n  font-size:14px;\r\n  width:16px;\r\n  height:16px;\r\n  left:-5px;\r\n  top:-4px;\r\n  border:1px solid #000000;\r\n  opacity:0;\r\n  cursor:pointer;\r\n  -ms-filter:\"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)\";\r\n  filter:alpha(opacity=0);\r\n  z-index:2;\r\n}\r\n.wyr-trees-dfault .chkDisabled {\r\n  background-color: #F5F5F5;\r\n  opacity: 1;\r\n  cursor: not-allowed;\r\n  }\r\n\r\n  .wyr-trees-dfault li span:hover {\r\n    background-color: #dddddde3\r\n  }\r\n  .wyr-trees-dfault ul,.wyr-trees-dfault li {\r\n    list-style-type:none;\r\n    text-align:left;\r\n  }\r\n  .wyr-trees-dfault li {\r\n    margin: 0;\r\n    padding: 5px 5px 5px 15px;\r\n    position: relative;\r\n    list-style: none;\r\n  }\r\n  .wyr-trees-dfault li:after,\r\n  .wyr-trees-dfault li:before {\r\n    content: '';\r\n    left: -8px;\r\n    position: absolute;\r\n    right: auto;\r\n    border-width: 1px\r\n  }\r\n  .wyr-trees-dfault li:before {\r\n    border-left: 1px dashed #999;\r\n    bottom: 50px;\r\n    height: 100%;\r\n    top: -8px;\r\n    width: 1px;\r\n  }\r\n  .wyr-trees-dfault li:after {\r\n    border-top: 1px dashed #999;\r\n    height: 20px;\r\n    top: 17px;\r\n    width: 28px\r\n  }\r\n  .wyr-trees-dfault li:last-child::before {\r\n    height: 26px\r\n  }\r\n  .wyr-trees-dfault>li.first-node:before {\r\n    top: 17px;\r\n  }\r\n  .wyr-trees-dfault>li.first-node.only-node::before {\r\n    border-left: none;\r\n  }\r\n  .wyr-trees-dfault > ul {\r\n    padding-left: 0\r\n  }\r\n  .wyr-trees-dfault {\r\n    padding-left: 17px;\r\n    padding-top: 10px;\r\n  }\r\n  .wyr-trees-dfault li.leaf {\r\n    padding-left: 15px;\r\n  }\r\n  .wyr-trees-dfault li.leaf:after {\r\n    content: '';\r\n    left: -7px;\r\n    position: absolute;\r\n    right: auto;\r\n    border-width: 1px;\r\n    border-top: 1px dashed #999;\r\n    height: 20px;\r\n    top: 17px;\r\n    width: 25px;\r\n  }\r\n  .wyr-trees-dfault .tree-node-el {\r\n    background-color: #FFFFFF;\r\n    padding-left: 2px;\r\n    position: relative;\r\n    z-index: 3;\r\n  }\r\n  .wyr-trees-dfault .node-title {\r\n    padding: 3px 3px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n    margin: 0 2px;\r\n  }\r\n  .wyr-trees-dfault>li.first-node:before {\r\n    top: 17px;\r\n  }\r\n  .wyr-trees-dfault>li.first-node.only-node::before {\r\n    border-left: none;\r\n  }\r\n  .wyr-trees-dfault>li.first-node.only-node::before {\r\n    border-left: none;\r\n  }\r\n  .wyr-trees-dfault>li.only-node:after {\r\n    border-top: none;\r\n  }\r\n\r\n  .wyr-trees-dfault .inputCheck {\r\n    display:inline-block;\r\n    position:relative;\r\n    width:14px;\r\n    height:14px;\r\n    border:1px solid #888888;\r\n    border-radius:2px;\r\n    top:4px;\r\n    text-align:center;\r\n    font-size:14px;\r\n    line-height:14px;\r\n  }\r\n  .wyr-trees-dfault .inputCheck.notAllNodes:before {\r\n    content:\"\\2713\";\r\n    display:block;\r\n    position:absolute;\r\n    width:100%;\r\n    height:100%;\r\n    background-color:#888888;\r\n    z-index:1;\r\n    color:#ffffff;\r\n  }\r\n  .wyr-trees-dfault .inputCheck.box-checked:after {\r\n    content:\"\\2713\";\r\n    display:block;\r\n    position:absolute;\r\n    z-index:1;\r\n    width:100%;\r\n    text-align:center;\r\n  }";
+var css = ".wyr-trees-dfault ul,.wyr-trees-dfault li {\n  list-style-type:none;\n  text-align:left;\n}\n\n.wyr-trees-dfault .tree-open {\n  line-height: 13px;\n}\n\n.wyr-trees-dfault .tree-open:after {\n  content: \"\\2013\";\n  font-style: normal;\n}\n\n.wyr-trees-dfault .tree-close:after {\n  content: \"+\";\n  font-style: normal;\n}\n\n.wyr-trees-dfault .tree-open,\n.wyr-trees-dfault .tree-close {\n  display: inline-block;\n  width:14px;\n  height:14px;\n  text-align: center;\n  line-height: 13px;\n  border: 1px solid #888888;\n  border-radius: 2px;\n  background: #FFFFFF;\n}\n\n.wyr-trees-dfault .tree-open:after {\n  content: \"\\2013\";\n  font-style: normal;\n}\n.wyr-trees-dfault .tree-add {\n  padding: 5px 10px;\n  background-color: #00FF99;\n  color: white;\n  font-weight: bold;\n  cursor: pointer;\n}\n.wyr-trees-dfault .tree-del {\n  padding: 5px 10px;\n  background-color: #990033;\n  color: white;\n  font-weight: bold;\n  cursor: pointer;\n}\n.wyr-trees-dfault .tree-exit {\n  padding: 5px 10px;\n  background-color: #CCFF66;\n  color: white;\n  font-weight: bold;\n  cursor: pointer;\n}\n.wyr-trees-dfault .tree-open {\n  line-height: 13px;\n}\n\n.wyr-trees-dfault .box-halfchecked {\n  background-color: #888888;\n}\n.wyr-trees-dfault .box-halfchecked:after {\n  content:\"\\2713\";\n  display:block;\n  position:absolute;\n  z-index:1;\n  width:100%;\n  text-align:center;\n  color: #FFFFFF;\n}\n.wyr-trees-dfault .inputCheck.wyr-trees-dfault:after {\n  content:\"\\2713\";\n  display:block;\n  position:absolute;\n  z-index:1;\n  width:100%;\n  text-align:center;\n}\n.wyr-trees-dfault .check{\n  display:block;\n  position:absolute;\n  font-size:14px;\n  width:16px;\n  height:16px;\n  left:-5px;\n  top:-4px;\n  border:1px solid #000000;\n  opacity:0;\n  cursor:pointer;\n  -ms-filter:\"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)\";\n  filter:alpha(opacity=0);\n  z-index:2;\n}\n.wyr-trees-dfault .chkDisabled {\n  background-color: #F5F5F5;\n  opacity: 1;\n  cursor: not-allowed;\n  }\n\n  .wyr-trees-dfault li span:hover {\n    background-color: #dddddde3\n  }\n  .wyr-trees-dfault ul,.wyr-trees-dfault li {\n    list-style-type:none;\n    text-align:left;\n  }\n  .wyr-trees-dfault li {\n    margin: 0;\n    padding: 5px 5px 5px 15px;\n    position: relative;\n    list-style: none;\n  }\n  .wyr-trees-dfault li:after,\n  .wyr-trees-dfault li:before {\n    content: '';\n    left: -8px;\n    position: absolute;\n    right: auto;\n    border-width: 1px\n  }\n  .wyr-trees-dfault li:before {\n    border-left: 1px dashed #999;\n    bottom: 50px;\n    height: 100%;\n    top: -8px;\n    width: 1px;\n  }\n  .wyr-trees-dfault li:after {\n    border-top: 1px dashed #999;\n    height: 20px;\n    top: 17px;\n    width: 28px\n  }\n  .wyr-trees-dfault li:last-child::before {\n    height: 26px\n  }\n  .wyr-trees-dfault>li.first-node:before {\n    top: 17px;\n  }\n  .wyr-trees-dfault>li.first-node.only-node::before {\n    border-left: none;\n  }\n  .wyr-trees-dfault > ul {\n    padding-left: 0\n  }\n  .wyr-trees-dfault {\n    padding-left: 17px;\n    padding-top: 10px;\n  }\n  .wyr-trees-dfault li.leaf {\n    padding-left: 15px;\n  }\n  .wyr-trees-dfault li.leaf:after {\n    content: '';\n    left: -7px;\n    position: absolute;\n    right: auto;\n    border-width: 1px;\n    border-top: 1px dashed #999;\n    height: 20px;\n    top: 17px;\n    width: 25px;\n  }\n  .wyr-trees-dfault .tree-node-el {\n    background-color: #FFFFFF;\n    padding-left: 2px;\n    position: relative;\n    z-index: 3;\n  }\n  .wyr-trees-dfault .node-title {\n    padding: 3px 3px;\n    border-radius: 3px;\n    cursor: pointer;\n    margin: 0 2px;\n  }\n  .wyr-trees-dfault>li.first-node:before {\n    top: 17px;\n  }\n  .wyr-trees-dfault>li.first-node.only-node::before {\n    border-left: none;\n  }\n  .wyr-trees-dfault>li.first-node.only-node::before {\n    border-left: none;\n  }\n  .wyr-trees-dfault>li.only-node:after {\n    border-top: none;\n  }\n\n  .wyr-trees-dfault .inputCheck {\n    display:inline-block;\n    position:relative;\n    width:14px;\n    height:14px;\n    border:1px solid #888888;\n    border-radius:2px;\n    top:4px;\n    text-align:center;\n    font-size:14px;\n    line-height:14px;\n  }\n  .wyr-trees-dfault .inputCheck.notAllNodes:before {\n    content:\"\\2713\";\n    display:block;\n    position:absolute;\n    width:100%;\n    height:100%;\n    background-color:#888888;\n    z-index:1;\n    color:#ffffff;\n  }\n  .wyr-trees-dfault .inputCheck.box-checked:after {\n    content:\"\\2713\";\n    display:block;\n    position:absolute;\n    z-index:1;\n    width:100%;\n    text-align:center;\n  }";
 __$$styleInject(css);
 
-var css$2 = ".wyr-trees-fold {\r\n  padding-left: 0px;\r\n  padding-top: 0px;\r\n}\r\n.wyr-trees-fold ul,.wyr-trees-fold li {\r\n  list-style-type:none;\r\n  text-align:left;\r\n}\r\n.wyr-trees-fold .tree-node-el {\r\n  background-color: white;\r\n  padding: 10px 2px;\r\n  /* border-top: 1px solid #ebeef5; */\r\n  border-bottom: 1px solid #ebeef5;\r\n}\r\n.wyr-trees-fold .tree-arrow-right {\r\n  display: inline-block;   \r\n  border-right: 3px solid; border-bottom: 3px solid;  \r\n  width: 8px; height: 8px;  \r\n  transform: rotate(-45deg);\r\n  transition: transform .3s;\r\n}\r\n.wyr-trees-fold .tree-arrow-down {\r\n  display: inline-block;   \r\n  border-right: 3px solid; border-bottom: 3px solid;  \r\n  width: 8px; height: 8px;  \r\n  transform: rotate(45deg);\r\n  transition: transform .3s;\r\n}\r\n.wyr-trees-fold .tree-down {\r\n  height: 100%;\r\n  padding: 0 20px;\r\n  float: right;\r\n}\r\n\r\n/* .wyr-trees-fold  .node-title {\r\n  padding-left: 10px;\r\n} */";
+var css$2 = ".wyr-trees-fold {\n  padding-left: 0px;\n  padding-top: 0px;\n}\n.wyr-trees-fold ul,.wyr-trees-fold li {\n  list-style-type:none;\n  text-align:left;\n}\n.wyr-trees-fold .tree-node-el {\n  background-color: white;\n  padding: 10px 2px;\n  /* border-top: 1px solid #ebeef5; */\n  border-bottom: 1px solid #ebeef5;\n}\n.wyr-trees-fold .tree-arrow-right {\n  display: inline-block;   \n  border-right: 3px solid; border-bottom: 3px solid;  \n  width: 8px; height: 8px;  \n  transform: rotate(-45deg);\n  transition: transform .3s;\n}\n.wyr-trees-fold .tree-arrow-down {\n  display: inline-block;   \n  border-right: 3px solid; border-bottom: 3px solid;  \n  width: 8px; height: 8px;  \n  transform: rotate(45deg);\n  transition: transform .3s;\n}\n.wyr-trees-fold .tree-down {\n  height: 100%;\n  padding: 0 20px;\n  float: right;\n}\n\n/* .wyr-trees-fold  .node-title {\n  padding-left: 10px;\n} */";
 __$$styleInject(css$2);
 
 var elTransition = '0.3s height ease-in-out, 0.3s padding-top ease-in-out, 0.3s padding-bottom ease-in-out';
@@ -118,7 +118,9 @@ var Trees = { render: function render() {
             _vm.drag(item, $event);
           } } }, [_c('span', { staticClass: "tree-down", on: { "click": function click($event) {
             _vm.expandTree(item, $event);
-          } } }, [_c('span', { ref: "arrow", refInFor: true, class: item.children && item.children.length > 0 ? item.expanded ? 'tree-arrow-down' : 'tree-arrow-right' : '' })]), _vm._v(" "), !_vm.control ? _c('span', { staticClass: "node-title", style: { 'padding-left': _vm.times * 17 + 'px' } }, [_vm._v(_vm._s(item.title))]) : _vm._e(), _vm._v(" "), _vm.control ? _c('input', { directives: [{ name: "model", rawName: "v-model", value: item.title, expression: "item.title" }], staticClass: "node-title", style: { 'margin-left': _vm.times * 17 + 'px' }, attrs: { "type": "text" }, domProps: { "value": item.title }, on: { "input": function input($event) {
+          } } }, [_c('span', { ref: "arrow", refInFor: true, class: item.children && item.children.length > 0 ? item.expanded ? 'tree-arrow-down' : 'tree-arrow-right' : '' })]), _vm._v(" "), !_vm.control ? _c('span', { staticClass: "node-title", style: { 'padding-left': _vm.times * 17 + 'px' } }, [_vm._v(_vm._s(item.title))]) : _vm._e(), _vm._v(" "), _vm.control ? _c('input', { directives: [{ name: "model", rawName: "v-model", value: item.title, expression: "item.title" }], staticClass: "node-title", style: { 'margin-left': _vm.times * 17 + 'px' }, attrs: { "type": "text" }, domProps: { "value": item.title }, on: { "change": function change($event) {
+            _vm.nodeChange(item);
+          }, "input": function input($event) {
             if ($event.target.composing) {
               return;
             }_vm.$set(item, "title", $event.target.value);
@@ -126,7 +128,7 @@ var Trees = { render: function render() {
             _vm.addNode(item);
           } } }, [_vm._v("Add")]), _vm._v(" "), _c('span', { staticClass: "tree-del", on: { "click": function click($event) {
             _vm.delNode(item);
-          } } }, [_vm._v("Del")])]) : _vm._e()]), _vm._v(" "), _c('transition', { on: { "before-enter": _vm.beforeEnter, "enter": _vm.enter, "after-enter": _vm.afterEnter, "before-leave": _vm.beforeLeave, "leave": _vm.leave, "after-leave": _vm.afterLeave } }, [!_vm.haveLeaf(item) ? _c('Trees', { directives: [{ name: "show", rawName: "v-show", value: item.expanded, expression: "item.expanded" }], attrs: { "times": _vm.times + 1, "fontColor": _vm.fontColor, "bgColor": _vm.bgColor, "type": _vm.type, "data": item.children, "parent": item, "canCheck": _vm.canCheck, "draggable": _vm.draggable, "control": _vm.control } }) : _vm._e()], 1)], 1);
+          } } }, [_vm._v("Del")])]) : _vm._e()]), _vm._v(" "), _c('transition', { on: { "before-enter": _vm.beforeEnter, "enter": _vm.enter, "after-enter": _vm.afterEnter, "before-leave": _vm.beforeLeave, "leave": _vm.leave, "after-leave": _vm.afterLeave } }, [!_vm.haveLeaf(item) ? _c('Trees', { directives: [{ name: "show", rawName: "v-show", value: item.expanded, expression: "item.expanded" }], attrs: { "type": _vm.type, "afterAddNode": _vm.afterAddNode, "beforeAddNode": _vm.beforeAddNode, "beforeDelNode": _vm.beforeDelNode, "afterDelNode": _vm.afterDelNode, "times": _vm.times + 1, "fontColor": _vm.fontColor, "bgColor": _vm.bgColor, "data": item.children, "parent": item, "canCheck": _vm.canCheck, "draggable": _vm.draggable, "control": _vm.control } }) : _vm._e()], 1)], 1);
     })) : _vm._e(), _vm._v(" "), _vm.type === 'default' ? _c('ul', { staticClass: "wyr-trees-dfault" }, _vm._l(_vm.data, function (item, index) {
       return _c('li', { class: { 'leaf': _vm.haveLeaf(item), 'first-node': !_vm.parent && index === 0, 'only-node': !_vm.parent && _vm.data.length === 1 }, on: { "drop": function drop($event) {
             _vm.drop(item, $event);
@@ -159,7 +161,7 @@ var Trees = { render: function render() {
             _vm.addNode(item);
           } } }, [_vm._v("Add")]), _vm._v(" "), _c('span', { staticClass: "tree-del", on: { "click": function click($event) {
             _vm.delNode(item);
-          } } }, [_vm._v("Del")])]) : _vm._e()]), _vm._v(" "), _c('transition', { on: { "before-enter": _vm.beforeEnter, "enter": _vm.enter, "after-enter": _vm.afterEnter, "before-leave": _vm.beforeLeave, "leave": _vm.leave, "after-leave": _vm.afterLeave } }, [!_vm.haveLeaf(item) ? _c('Trees', { directives: [{ name: "show", rawName: "v-show", value: item.expanded, expression: "item.expanded" }], attrs: { "type": _vm.type, "fontColor": _vm.fontColor, "bgColor": _vm.bgColor, "data": item.children, "parent": item, "canCheck": _vm.canCheck, "draggable": _vm.draggable, "control": _vm.control } }) : _vm._e()], 1)], 1);
+          } } }, [_vm._v("Del")])]) : _vm._e()]), _vm._v(" "), _c('transition', { on: { "before-enter": _vm.beforeEnter, "enter": _vm.enter, "after-enter": _vm.afterEnter, "before-leave": _vm.beforeLeave, "leave": _vm.leave, "after-leave": _vm.afterLeave } }, [!_vm.haveLeaf(item) ? _c('Trees', { directives: [{ name: "show", rawName: "v-show", value: item.expanded, expression: "item.expanded" }], attrs: { "type": _vm.type, "afterAddNode": _vm.afterAddNode, "beforeAddNode": _vm.beforeAddNode, "beforeDelNode": _vm.beforeDelNode, "afterDelNode": _vm.afterDelNode, "fontColor": _vm.fontColor, "bgColor": _vm.bgColor, "data": item.children, "parent": item, "canCheck": _vm.canCheck, "draggable": _vm.draggable, "control": _vm.control } }) : _vm._e()], 1)], 1);
     })) : _vm._e()]);
   }, staticRenderFns: [],
   name: 'Trees',
@@ -208,6 +210,30 @@ var Trees = { render: function render() {
     fontColor: {
       type: String,
       default: 'black'
+    },
+    afterAddNode: {
+      type: Function,
+      default: function _default() {
+        return null;
+      }
+    },
+    beforeAddNode: {
+      type: Function,
+      default: function _default() {
+        return null;
+      }
+    },
+    beforeDelNode: {
+      type: Function,
+      default: function _default() {
+        return null;
+      }
+    },
+    afterDelNode: {
+      type: Function,
+      default: function _default() {
+        return null;
+      }
     },
     times: {
       type: Number,
@@ -267,6 +293,7 @@ var Trees = { render: function render() {
         this.$set(node, 'children', [drag]);
         dragHost.splice(dragHost.indexOf(drag), 1);
       }
+
       this.$set(node, 'expanded', this.dragAndExpanded);
     },
     setDragNode: function setDragNode(guid, node) {
@@ -345,20 +372,28 @@ var Trees = { render: function render() {
       }
     },
     addNode: function addNode(node) {
-      var newNode = {
-        title: 'newNode',
-        expanded: true
-      };
-      if (node.hasOwnProperty('children')) {
-        node.children.push(newNode);
-      } else {
-        this.$set(node, "children", [newNode]);
+      var isNo = this.beforeAddNode(node);
+      if (isNo !== 'no') {
+        var newNode = {
+          title: 'newNode',
+          expanded: true
+        };
+        if (node.hasOwnProperty('children')) {
+          node.children.push(newNode);
+        } else {
+          this.$set(node, "children", [newNode]);
+        }
+        this.afterAddNode(newNode, node);
       }
     },
     delNode: function delNode(node) {
-      if (this.parent == null) throw new Error('the root element can\'t deleted!');
-      if (node.checked && this.canCheck) throw new Error('the node should be checked!');
-      this.parent.children.splice(this.parent.children.indexOf(node), 1);
+      var isNo = this.beforeDelNode(node);
+      if (isNo !== 'no') {
+        if (this.parent == null) throw new Error('the root element can\'t deleted!');
+        if (node.checked && this.canCheck) throw new Error('the node should be checked!');
+        this.parent.children.splice(this.parent.children.indexOf(node), 1);
+        this.afterDelNode(node);
+      }
     },
     allCheck: function allCheck(node, state) {
       if (node.hasOwnProperty('children')) {
@@ -397,6 +432,9 @@ var Trees = { render: function render() {
         this.$set(node, 'checked', !state);
         this.allCheck(node, !state);
       }
+    },
+    nodeChange: function nodeChange(node) {
+      console.log(node);
     }
   }
 };
