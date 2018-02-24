@@ -47,7 +47,7 @@ The data property does not support properties inherited from the prototype chain
 |afterAddNode | Increase the node after the trigger event | Function | Y | 1:Add node，2:Parent node |
 |beforeDelNode     | Delete the node before the trigger event (return 'no' means do not delete) | Function | Y | 1:Current node |
 |afterAddNode |  Event triggered after node deletion | Function | Y | 1:Current node |
-|beforeDragNode     | Drag the node before the trigger event (return 'no' means do not delete) | Function | Y | 1:Drag node,2:Target node |
+|beforeDragNode     | Drag the node before the trigger event (return 'no' means do not drag) | Function | Y | 1:Drag node,2:Target node |
 |afterDragNode |  Drag the node after the trigger event | Function | Y | 1:Drag node, 2:Target node |
 
 ### Demo

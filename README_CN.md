@@ -47,7 +47,7 @@ data属性不支持从原型链上继承的属性(如果用到可以考虑下是
 |afterAddNode | 增加节点后触发事件 | Function | Y | 1:新增节点，2:父节点 |
 |beforeDelNode     | 删除节点前触发事件(返回'no'表示不删除) | Function | Y | 1:当前节点 |
 |afterAddNode |  删除节点后触发事件 | Function | Y | 1:当前节点 |
-|beforeDragNode     | 拖拽节点前触发事件(返回'no'表示不删除) | Function | Y | 1:拖拽节点,2:目标节点 |
+|beforeDragNode     | 拖拽节点前触发事件(返回'no'表示不拖拽) | Function | Y | 1:拖拽节点,2:目标节点 |
 |afterDragNode |  拖拽节点后触发事件 | Function | Y | 1:拖拽节点, 2:目标节点 |
 
 ### 实例
